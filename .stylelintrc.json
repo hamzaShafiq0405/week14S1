@@ -1,6 +1,5 @@
 {
-    "rules":
-    {
-        "selector-type=case": "lower"
+    "rules": {
+        "selector-type-case": "lower"
     }
 }
