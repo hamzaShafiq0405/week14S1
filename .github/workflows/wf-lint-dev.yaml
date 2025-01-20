@@ -1,0 +1,28 @@
+name: "workflow"
+
+on:
+  pull_request:
+
+jobs:
+  lint-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Lint html and css
+        run: |
+          npx htmlhint "**/*.html"
+          npx stylelint "**/*.css"
+
+  build-job:
+    needs: lint-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Build with parcel 
+        run: |
+          npx parcel build "./src/index.html" --dist-dir "./dev" --public-url "./"
+      
+
+    
