@@ -12,7 +12,7 @@ jobs:
       - name: Lint html and css
         run: |
           npx htmlhint "**/*.html"
-          npx styleline "**/*.css"
+          npx stylelint "**/*.css"
 
   build-job:
     needs: lint-job
